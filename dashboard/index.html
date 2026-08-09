@@ -17,7 +17,6 @@
       background: var(--cream); color: var(--text); min-height: 100vh;
     }
     
-    /* ========== HEADER ========== */
     .header {
       background: var(--white);
       box-shadow: 0 4px 0 #3e2c1c;
@@ -32,7 +31,7 @@
     }
     .header-right { display: flex; align-items: center; gap: 10px; }
     .header-logo {
-      width: 44px; height: 44px; border-radius: 4px;
+      width: 44px; height: 44px; border-radius: 50%;
       object-fit: cover; border: 1px solid #3e2c1c;
       box-shadow: 3px 3px 0 #3e2c1c;
     }
@@ -50,7 +49,6 @@
     }
     .header-btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 #3e2c1c; }
 
-    /* ========== SEARCH / FILTER ========== */
     .search-filter-bar {
       max-width: 1100px; margin: 20px auto 8px; padding: 0 16px;
       display: flex; gap: 10px; flex-wrap: wrap;
@@ -76,7 +74,11 @@
     }
     .filter-select select:focus { transform: translate(1px, 1px); box-shadow: 2px 2px 0 #3e2c1c; }
 
-    /* ========== PRODUCTS ========== */
+    .special-cards-row {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
+      max-width: 1100px; margin: 20px auto 0; padding: 0 16px;
+    }
+
     .products-container { max-width: 1100px; margin: 0 auto; padding: 16px; }
     .section-title {
       text-align: center; font-size: 20px; color: var(--dark); margin-bottom: 20px;
@@ -128,76 +130,68 @@
     .empty-state { text-align: center; padding: 60px 20px; color: #a08b73; grid-column: 1/-1; }
     .empty-state i { font-size: 40px; margin-bottom: 16px; display: block; }
 
-    /* ========== FOOTER ========== */
     .footer {
       text-align: center; padding: 24px 20px; background: var(--white);
-      margin-top: 20px; border-top: 1px solid #3e2c1c;
-      box-shadow: 0 -4px 0 #3e2c1c;
+      margin-top: 20px; border-top: 1px solid #f0e8dc;
     }
     .footer-stats { display: flex; justify-content: center; gap: 32px; margin-bottom: 16px; flex-wrap: wrap; }
     .footer-stat {
       display: flex; flex-direction: column; align-items: center; gap: 4px;
-      background: var(--milk); padding: 10px 18px; border-radius: 4px;
-      border: 1px solid #3e2c1c; box-shadow: 3px 3px 0 #3e2c1c;
     }
     .footer-stat i { font-size: 18px; color: var(--brown); }
     .footer-stat span { font-size: 18px; font-weight: 700; color: var(--dark); }
     .footer-stat small { font-size: 10px; color: #a08b73; }
-    .footer-text { font-size: 11px; color: #a08b73; }
-    .footer-links { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin-bottom: 12px; }
-    .footer-links a {
-      color: var(--brown); font-size: 12px; text-decoration: none;
-      display: flex; align-items: center; gap: 4px;
-      padding: 6px 12px; border-radius: 4px; border: 1px solid #3e2c1c;
-      box-shadow: 2px 2px 0 #3e2c1c; transition: all 0.15s ease; background: var(--white);
-    }
-    .footer-links a:active { transform: translate(1px, 1px); box-shadow: 1px 1px 0 #3e2c1c; }
+    .footer-text { font-size: 11px; color: #b8a48e; }
 
-    /* ========== FLOATING BUTTON (Neo-Brutalism + typing animation) ========== */
-    .floating-support {
+    .floating-actions {
       position: fixed; bottom: 24px; right: 24px;
-      height: 48px; border-radius: 4px;
-      background: #2196F3; color: #fff;
-      border: 1px solid #3e2c1c;
-      cursor: pointer; display: flex; align-items: center; justify-content: flex-end;
+      display: flex; gap: 12px; z-index: 998;
+    }
+    .floating-btn {
+      height: 48px; border-radius: 4px; color: #fff;
+      border: 1px solid #3e2c1c; cursor: pointer;
+      display: flex; align-items: center; justify-content: flex-end;
       padding: 0; overflow: hidden; white-space: nowrap;
       transition: all 0.15s ease;
       box-shadow: 4px 4px 0 #3e2c1c;
-      z-index: 999; text-decoration: none;
-      font-family: inherit; position: relative;
+      position: relative; font-family: inherit; text-decoration: none;
       width: 48px;
     }
-    .floating-support i {
+    .floating-btn i {
       width: 48px; height: 48px; display: flex; align-items: center; justify-content: center;
       font-size: 20px; flex-shrink: 0; position: absolute; right: 0; top: 0;
     }
-    .floating-support .btn-text {
+    .floating-btn .btn-text {
       opacity: 0; padding: 0 56px 0 18px; font-size: 12px; font-weight: 600;
       display: inline-block; transition: opacity 0.3s ease; white-space: nowrap;
     }
-    .floating-support.expanded { width: 150px; }
-    .floating-support.expanded .btn-text { opacity: 1; }
-    .floating-support:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0 #3e2c1c; }
+    .floating-btn.expanded { width: 150px; }
+    .floating-btn.expanded .btn-text { opacity: 1; }
+    .floating-btn:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0 #3e2c1c; }
     
+    .floating-support-btn { background: #2196F3; }
+    .floating-ads-btn { background: #e74c3c; }
+
     .typing-cursor {
       display: inline-block; width: 2px; height: 14px; background: #fff;
       margin-right: 2px; animation: blink 0.8s infinite; vertical-align: middle;
     }
     @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
-    /* ========== RESPONSIVE ========== */
-    @media (max-width: 992px) { .products-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; } .product-image { height: 160px; } }
+    @media (max-width: 992px) { .products-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; } .product-image { height: 160px; } .special-cards-row { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 768px) {
       .products-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+      .special-cards-row { grid-template-columns: repeat(2, 1fr); gap: 10px; }
       .header-title { font-size: 18px; } .header-logo { width: 36px; height: 36px; }
       .header-btn { font-size: 11px; padding: 6px 10px; }
       .product-image { height: 140px; } .product-info { padding: 10px 12px; }
       .product-name { font-size: 12px; } .product-price { font-size: 12px; }
       .search-filter-bar { flex-direction: column; gap: 8px; }
-      .floating-support { bottom: 16px; right: 12px; width: 42px; height: 42px; box-shadow: 3px 3px 0 #3e2c1c; }
-      .floating-support i { width: 42px; height: 42px; font-size: 16px; }
+      .floating-actions { bottom: 16px; right: 12px; gap: 8px; }
+      .floating-btn { width: 42px; height: 42px; box-shadow: 3px 3px 0 #3e2c1c; }
+      .floating-btn i { width: 42px; height: 42px; font-size: 16px; }
     }
-    @media (max-width: 400px) { .products-grid { gap: 8px; } .product-image { height: 120px; } .product-name { font-size: 11px; } }
+    @media (max-width: 400px) { .products-grid { gap: 8px; } .special-cards-row { gap: 8px; } .product-image { height: 120px; } .product-name { font-size: 11px; } }
   </style>
 </head>
 <body>
@@ -234,6 +228,8 @@
     </div>
   </div>
 
+  <div class="special-cards-row" id="specialCardsRow"></div>
+
   <section class="products-container">
     <h2 class="section-title">محصولات</h2>
     <div class="products-grid" id="productsGrid">
@@ -247,17 +243,19 @@
       <div class="footer-stat"><i class="fa-solid fa-heart"></i><span id="footerLikes">0</span><small>لایک</small></div>
       <div class="footer-stat"><i class="fa-solid fa-cart-shopping"></i><span id="footerOrders">0</span><small>سفارش</small></div>
     </div>
-    <div class="footer-links">
-      <a href="../ads/index.html"><i class="fa-solid fa-ad"></i> رزرو تبلیغات</a>
-      <a href="../support/index.html"><i class="fa-solid fa-headset"></i> پشتیبانی</a>
-    </div>
     <p class="footer-text"><i class="fa-solid fa-star-and-crescent"></i> رسانه هنری قمر — کلیه حقوق محفوظ است</p>
   </footer>
 
-  <a href="../support/index.html" class="floating-support" id="floatingSupport" title="پشتیبانی">
-    <span class="btn-text" id="supportText"></span>
-    <i class="fa-solid fa-headset"></i>
-  </a>
+  <div class="floating-actions">
+    <a href="../ads/index.html" class="floating-btn floating-ads-btn" id="floatingAds" title="رزرو تبلیغات">
+      <span class="btn-text" id="adsText"></span>
+      <i class="fa-solid fa-ad"></i>
+    </a>
+    <a href="../support/index.html" class="floating-btn floating-support-btn" id="floatingSupport" title="پشتیبانی">
+      <span class="btn-text" id="supportText"></span>
+      <i class="fa-solid fa-headset"></i>
+    </a>
+  </div>
 
   <script>
     const API_URL = 'https://script.google.com/macros/s/AKfycbwcbAAlH_ZC9B0Zsq7uUqTjE6eVjJg5Ci0Tjcm6gV3nDiFoCjhdpmgUNjhPOkj2-_vCwQ/exec';
@@ -289,7 +287,10 @@
     const aiCard = `<div class="product-card" onclick="window.location.href='../ai/index.html'" style="border:2px dashed var(--purple);"><div class="product-image" style="display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#f9f0ff,#ede0f7);"><i class="fa-solid fa-robot" style="font-size:48px;color:var(--purple);"></i></div><div class="product-info"><div class="product-name">طراحی با هوش مصنوعی</div><div class="product-meta"><span class="product-category" style="background:var(--purple);color:var(--white);">ویژه</span><span class="product-price" style="color:var(--purple);">رایگان <span>امتحان کنید</span></span></div><div class="product-like-row"><span class="product-likes-count"><i class="fa-solid fa-wand-magic-sparkles" style="color:var(--purple);"></i> خلاقیت بی‌نهایت</span><span style="font-size:10px;color:#a08b73;">ساخته شده با Ai</span></div></div></div>`;
     const portfolioCard = `<div class="product-card" onclick="window.location.href='../example/index.html'" style="border:2px dashed #e67e22;"><div class="product-image" style="display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#fef5e7,#fdebd0);"><i class="fa-solid fa-palette" style="font-size:48px;color:#e67e22;"></i></div><div class="product-info"><div class="product-name">مشاهده نمونه کارها</div><div class="product-meta"><span class="product-category" style="background:#e67e22;color:var(--white);">ویژه</span><span class="product-price" style="color:#e67e22;">گالری <span>کلیک کنید</span></span></div><div class="product-like-row"><span class="product-likes-count"><i class="fa-solid fa-images" style="color:#e67e22;"></i> نمونه کارهای ما</span><span style="font-size:10px;color:#a08b73;">کارهای قبلی</span></div></div></div>`;
 
-    /* ========== TYPING ANIMATION ========== */
+    function renderSpecialCards() {
+      document.getElementById('specialCardsRow').innerHTML = adCard + customOrderCard + aiCard + portfolioCard;
+    }
+
     function typeText(element, text, callback) {
       let i = 0;
       element.innerHTML = '<span class="typing-cursor"></span>';
@@ -302,22 +303,28 @@
     }
     function clearText(element, callback) { element.textContent = ''; if (callback) callback(); }
 
-    function animateFloatingSupport() {
-      const btn = document.getElementById('floatingSupport');
-      const textEl = document.getElementById('supportText');
-      if (!btn || !textEl) return;
+    function animateFloatingButtons() {
+      const adsBtn = document.getElementById('floatingAds');
+      const supportBtn = document.getElementById('floatingSupport');
+      const adsText = document.getElementById('adsText');
+      const supportText = document.getElementById('supportText');
+      if (!adsBtn || !supportBtn) return;
+      
+      let toggle = true;
       function cycle() {
-        btn.classList.add('expanded');
-        typeText(textEl, 'پشتیبانی', () => {
-          clearText(textEl);
-          btn.classList.remove('expanded');
-          setTimeout(cycle, 3000);
-        });
+        if (toggle) {
+          if (supportBtn.classList.contains('expanded')) { clearText(supportText); supportBtn.classList.remove('expanded'); }
+          setTimeout(() => { adsBtn.classList.add('expanded'); typeText(adsText, 'رزرو تبلیغات', () => { clearText(adsText); adsBtn.classList.remove('expanded'); }); }, 400);
+        } else {
+          if (adsBtn.classList.contains('expanded')) { clearText(adsText); adsBtn.classList.remove('expanded'); }
+          setTimeout(() => { supportBtn.classList.add('expanded'); typeText(supportText, 'پشتیبانی', () => { clearText(supportText); supportBtn.classList.remove('expanded'); }); }, 400);
+        }
+        toggle = !toggle;
       }
-      setTimeout(cycle, 1500);
+      cycle();
+      setInterval(cycle, 5000);
     }
 
-    /* ========== VISIT TRACKING ========== */
     function trackVisit() {
       const lastVisit = localStorage.getItem('qm_last_visit'), now = Date.now();
       if (!lastVisit || (now - parseInt(lastVisit)) > 1800000) {
@@ -326,21 +333,21 @@
       }
     }
 
-    /* ========== LOAD PRODUCTS ========== */
     async function loadProducts() {
       await loadAd();
+      renderSpecialCards();
       try {
         const res = await fetch(API_URL, { method:'POST', body: JSON.stringify({ action:'getProducts', role:'visitor', username:'' }) });
         const data = await res.json();
         if (data.result==='success' && data.data.products.length>0) { allProducts = data.data.products.filter(p=>p.status!=='sold'); renderProducts(allProducts); }
-        else { document.getElementById('productsGrid').innerHTML = adCard + customOrderCard + aiCard + portfolioCard + '<div class="empty-state"><i class="fa-solid fa-box-open"></i><p>هنوز محصولی ثبت نشده است.</p></div>'; }
-      } catch(e) { document.getElementById('productsGrid').innerHTML = adCard + customOrderCard + aiCard + portfolioCard + '<div class="empty-state"><i class="fa-solid fa-triangle-exclamation"></i><p>خطا</p></div>'; }
+        else { document.getElementById('productsGrid').innerHTML = '<div class="empty-state"><i class="fa-solid fa-box-open"></i><p>هنوز محصولی ثبت نشده است.</p></div>'; }
+      } catch(e) { document.getElementById('productsGrid').innerHTML = '<div class="empty-state"><i class="fa-solid fa-triangle-exclamation"></i><p>خطا</p></div>'; }
     }
 
     function renderProducts(products) {
       const grid = document.getElementById('productsGrid');
-      if (products.length===0) { grid.innerHTML = adCard + customOrderCard + aiCard + portfolioCard + '<div class="no-results"><i class="fa-solid fa-search"></i><p>پیدا نشد.</p></div>'; return; }
-      grid.innerHTML = adCard + customOrderCard + aiCard + portfolioCard + products.map(p=>{
+      if (products.length===0) { grid.innerHTML = '<div class="no-results"><i class="fa-solid fa-search"></i><p>پیدا نشد.</p></div>'; return; }
+      grid.innerHTML = products.map(p=>{
         const hasLiked = localStorage.getItem('qm_liked_'+p.product_id)==='true';
         return `<div class="product-card" onclick="goToProduct('${p.product_id}')"><img src="${p.header_image||'https://cdn.imgurl.ir/uploads/n606537_IMG_20260618_122029_787.jpg'}" alt="${p.name}" class="product-image" onerror="this.src='https://cdn.imgurl.ir/uploads/n606537_IMG_20260618_122029_787.jpg'"><div class="product-info"><div class="product-name">${p.name}</div><div class="product-meta"><span class="product-category">${categoryLabels[p.category]||p.category||'سایر'}</span><span class="product-price">${Number(p.price).toLocaleString('fa-IR')} <span>تومان</span></span></div><div class="product-like-row"><span class="product-likes-count"><i class="fa-solid fa-heart"></i> ${p.likes||0}</span><button class="btn-card-like ${hasLiked?'liked':''}" onclick="event.stopPropagation();toggleLikeCard('${p.product_id}',this)"><i class="${hasLiked?'fa-solid':'fa-regular'} fa-heart"></i></button></div></div></div>`;
       }).join('');
@@ -361,7 +368,7 @@
     }
 
     trackVisit(); loadProducts(); loadFooterStats();
-    window.addEventListener('DOMContentLoaded', () => { setTimeout(animateFloatingSupport, 1000); });
+    window.addEventListener('DOMContentLoaded', () => { setTimeout(animateFloatingButtons, 1000); });
   </script>
 </body>
 </html>
